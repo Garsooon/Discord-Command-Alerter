@@ -1,14 +1,6 @@
-name: Plugin Name
-main: org.garsooon.PLUGINNAME.MainClass
-version: 1.0
-
-commands:
-  plugincmd:
-    description:
-    permission:
-    aliases:
-
-permissions:
-  plugin.use:
-      description:
-      default: true
+name: DiscordCommandAlerter
+main: org.garsooon.discordcommandalerter.DiscordCommandAlerter
+version: 1.0.0
+author: Garsooon
+depend: [DiscordCore]
+softdepend: [WorldEdit, DiscordAuthentication]

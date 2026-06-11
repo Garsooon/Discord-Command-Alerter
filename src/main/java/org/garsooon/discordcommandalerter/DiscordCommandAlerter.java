@@ -12,6 +12,7 @@ public class DiscordCommandAlerter extends JavaPlugin {
     private String worldEditChannelId;
     private String giveChannelId;
     private String registerChannelId;
+    private String dogKillChannelId;
 
     @Override
     public void onEnable() {
@@ -25,12 +26,14 @@ public class DiscordCommandAlerter extends JavaPlugin {
             config.setProperty("worldedit-channel-id", "CHANNEL_ID_HERE");
             config.setProperty("give-channel-id", "CHANNEL_ID_HERE");
             config.setProperty("register-channel-id", "CHANNEL_ID_HERE");
+            config.setProperty("dog-kill-channel-id", "CHANNEL_ID_HERE");
             config.save();
         }
 
         worldEditChannelId = config.getString("worldedit-channel-id", "CHANNEL_ID_HERE");
         giveChannelId = config.getString("give-channel-id", "CHANNEL_ID_HERE");
         registerChannelId = config.getString("register-channel-id", "CHANNEL_ID_HERE");
+        dogKillChannelId = config.getString("dog-kill-channel-id", "CHANNEL_ID_HERE");
 
         DiscordCore discordCore = (DiscordCore) Bukkit.getPluginManager().getPlugin("DiscordCore");
         if (discordCore == null) {
@@ -43,6 +46,7 @@ public class DiscordCommandAlerter extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new WorldEditCommandListener(this), this);
         Bukkit.getPluginManager().registerEvents(new GiveCommandListener(this), this);
         Bukkit.getPluginManager().registerEvents(new RegisterCommandListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new DogKillListener(this), this);
         System.out.println("[DiscordCommandAlerter] Enabled.");
     }
 
@@ -69,5 +73,9 @@ public class DiscordCommandAlerter extends JavaPlugin {
 
     public String getRegisterChannelId() {
         return registerChannelId;
+    }
+
+    public String getDogKillChannelId() {
+        return dogKillChannelId;
     }
 }

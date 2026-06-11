@@ -8,3 +8,6 @@ give-channel-id: "CHANNEL_ID_HERE"
 
 # Channel for /register attempts
 register-channel-id: "CHANNEL_ID_HERE"
+
+# Channel for dog kills (player kills a tamed dog they don't own)
+dog-kill-channel-id: "CHANNEL_ID_HERE"
